@@ -851,8 +851,6 @@ body:[
 
 ];
 // Merge with existing cops array
-const allCops = cops.concat(cops489);
-
 // ── 42 CFR PART 489 — PROVIDER AGREEMENTS ────────────────────────────────────
 const cops489 = [
 
@@ -1132,5 +1130,4 @@ body:[
 
 ];
 
-// Merge into cops array
-cops.push(...cops489);
+const allCops = cops.concat(cops489);
