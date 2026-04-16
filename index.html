@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Pocket CoP — 42 CFR Part 482</title>
+  <title>Pocket CoP — 42 CFR Parts 482 &amp; 489</title>
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
   <meta name="mobile-web-app-capable" content="yes">
@@ -16,19 +16,14 @@
 </head>
 <body>
 
-<!-- Update notification banner -->
 <div id="update-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;
   background:#1e3d2a;border-top:1px solid #2a6040;padding:10px 14px;z-index:9999;
   align-items:center;gap:10px;font-size:13px;color:#a0d8b0;box-shadow:0 -2px 12px rgba(0,0,0,.5)">
   <span style="flex:1;line-height:1.3">&#x2713; A new version of Pocket CoP is ready</span>
   <button id="update-reload" style="background:#2a6040;color:#7de8a0;border:1px solid #3a8050;
-    padding:7px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600">
-    Update now
-  </button>
+    padding:7px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600">Update now</button>
   <button onclick="document.getElementById('update-banner').style.display='none'"
-    style="background:none;color:#4a7a5a;border:none;font-size:20px;cursor:pointer;padding:0 4px">
-    &times;
-  </button>
+    style="background:none;color:#4a7a5a;border:none;font-size:20px;cursor:pointer;padding:0 4px">&times;</button>
 </div>
 
 <header>
@@ -48,6 +43,8 @@
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="psych">Psych-Specific</button>
     <button class="filter-btn" data-filter="general">General CoP</button>
+    <button class="filter-btn" data-filter="provider-agreement">Provider Agreement</button>
+    <button class="filter-btn" data-filter="provider-agreement">Provider Agreement</button>
   </div>
   
 </header>

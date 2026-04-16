@@ -59,6 +59,7 @@ main{padding:6px 0 60px}
 .badge{font-size:10px;font-family:var(--font-mono);padding:1px 6px;border-radius:3px;letter-spacing:.03em;font-weight:500}
 .badge-psych{background:var(--tag-psych);color:var(--tag-psych-text)}
 .badge-general{background:var(--tag-general);color:var(--tag-general-text)}
+.badge-provider{background:#3d3010;color:#d4a843}
 .cop-chevron{color:var(--text-muted);transition:transform .2s;flex-shrink:0;margin-top:2px}
 .cop-card.open .cop-chevron{transform:rotate(180deg)}
 .cop-body{display:none;border-top:1px solid var(--border)}

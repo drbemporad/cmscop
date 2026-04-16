@@ -1,7 +1,7 @@
 {
   "name": "Pocket CoP",
   "short_name": "Pocket CoP",
-  "description": "42 CFR Part 482 \u2014 CMS Conditions of Participation",
+  "description": "42 CFR Parts 482 & 489 \u2014 CMS CoP & Provider Agreements",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

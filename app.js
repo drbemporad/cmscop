@@ -1,5 +1,4 @@
-// Pocket CoP — application logic
-// Version: v1.0
+// Pocket CoP v1.0 — application logic
 
 function igNodeHtml(n,q){
   function hilit(t){
@@ -162,7 +161,7 @@ function buildCards(){
   var scope = activeScope;
   var lastSubpart='', count=0;
 
-  cops.forEach(function(cop){
+  allCops.forEach(function(cop){
     var tagOk = activeFilter==='all' || cop.tags.includes(activeFilter);
 
     // Find matching IG entry for this cop section
@@ -246,8 +245,8 @@ function buildCards(){
     card.className = 'cop-card'+(ql?' open':'');
 
     var badges = cop.tags.map(function(t){
-      var cls=t==='psych'?'badge-psych':'badge-general';
-      var lbl=t==='psych'?'PSYCH-SPECIFIC':'GENERAL CoP';
+      var cls=t==='psych'?'badge-psych':t==='provider-agreement'?'badge-provider':'badge-general';
+      var lbl=t==='psych'?'PSYCH-SPECIFIC':t==='provider-agreement'?'PROVIDER AGMT':'GENERAL CoP';
       return '<span class="badge '+cls+'">'+lbl+'</span>';
     }).join('');
 
@@ -319,7 +318,7 @@ function buildCards(){
   noResults.classList.toggle('show',count===0);
   resultsMeta.textContent = ql
     ? count+' section'+(count!==1?'s':'')+' matching “'+activeQuery+'” in '+(scope==='cop'?'CoP text':'Interp. Guidelines')
-    : 'Showing '+count+' of '+cops.length+' conditions';
+    : 'Showing '+count+' of '+allCops.length+' conditions';
 }
 
 
@@ -338,12 +337,10 @@ filterRow.querySelectorAll('.filter-btn').forEach(btn=>{
 });
 rebuildAll();
 
-// ── Update notification ───────────────────────────────────────────────────────
+// ── Service Worker Registration & Update Detection ────────────────────────────
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js').then(function(reg) {
-    // Check for updates on every load
     reg.update();
-    // When a new SW is waiting, show the update banner
     reg.addEventListener('updatefound', function() {
       var newSW = reg.installing;
       newSW.addEventListener('statechange', function() {
@@ -353,7 +350,6 @@ if ('serviceWorker' in navigator) {
       });
     });
   });
-  // After new SW takes over, reload to get fresh content
   var refreshing = false;
   navigator.serviceWorker.addEventListener('controllerchange', function() {
     if (!refreshing) { refreshing = true; window.location.reload(); }
